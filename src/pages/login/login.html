@@ -1,0 +1,32 @@
+
+<ion-header class="cabecalho">
+
+  <ion-navbar>
+    <ion-title>PiuPiuwer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content">
+    <h1 class="titulo">
+      Faça o seu Login!
+    </h1>
+    <form class="formulario" (ngSubmit)="fazerLogin()" #login="ngForm">
+      <ion-item>
+        <ion-label class="content" stacked>Username:</ion-label>
+        <ion-input class="input" [(ngModel)]="user.username" name="username" placeholder="Digite seu nome de usuário" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Senha:</ion-label>
+        <ion-input class="input" [(ngModel)]="user.password" name="senha" placeholder="Digite sua senha" type="password"></ion-input>
+      </ion-item>
+    </form>
+    <button ion-button class="botao" type="submit" (click)="login.ngSubmit.emit()" block>
+      <strong>Fazer Login!</strong>
+    </button>
+    <h5>
+      Não sabe o que pia por aí? Faça seu <a (click)="fazerCadastro()">cadastro</a> agora mesmo!
+    </h5>
+    
+</ion-content>

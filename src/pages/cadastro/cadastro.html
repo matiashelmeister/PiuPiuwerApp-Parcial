@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PiuPiuwer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h1>
+      Cadastre-se!
+    </h1>
+    <form #cadastro="ngForm">
+      <ion-item>
+        <ion-label stacked>Email:</ion-label>
+        <ion-input [(ngModel)]="novoUser.email" name="email" placeholder="Digite seu e-mail" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Username:</ion-label>
+        <ion-input [(ngModel)]="novoUser.username" name="username" placeholder="Escolha um nome de usuário" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Nome:</ion-label>
+        <ion-input [(ngModel)]="novoUser.nome" name="nome" placeholder="Digite seu nome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Sobrenome:</ion-label>
+        <ion-input [(ngModel)]="novoUser.sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Senha:</ion-label>
+        <ion-input [(ngModel)]="novoUser.senha" name="senha" placeholder="Digite uma senha" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Confirmar senha:</ion-label>
+        <ion-input [(ngModel)]="novoUser.confirmasenha" name="confirmasenha" placeholder="Confirme sua senha" type="password"></ion-input>
+      </ion-item>
+
+    <button ion-button type="submit" (click)="fazCadastro()" block>
+      <strong>Finalizar cadastro</strong>
+    </button>
+  </form>
+    
+</ion-content>
