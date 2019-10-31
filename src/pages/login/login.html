@@ -1,25 +1,18 @@
-
-<ion-header class="cabecalho">
-
-  <ion-navbar>
-    <ion-title>PiuPiuwer</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding class="content">
-    <h1 class="titulo">
-      Faça o seu Login!
+<ion-content padding class="body" scroll="false">
+  <div class="titulo">
+    <img src="../../assets/imgs/logo.png">
+    <h1>
+      PiuPiuwer
     </h1>
+  </div>
     <form class="formulario" (ngSubmit)="fazerLogin()" #login="ngForm">
-      <ion-item>
-        <ion-label class="content" stacked>Username:</ion-label>
-        <ion-input class="input" [(ngModel)]="user.username" name="username" placeholder="Digite seu nome de usuário" type="text"></ion-input>
+      <ion-item class="formulario">
+        <ion-label stacked>Username:</ion-label>
+        <ion-input [(ngModel)]="user.username" name="username" placeholder="Digite seu nome de usuário" type="text"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item no-lines class="formulario">
         <ion-label stacked>Senha:</ion-label>
-        <ion-input class="input" [(ngModel)]="user.password" name="senha" placeholder="Digite sua senha" type="password"></ion-input>
+        <ion-input [(ngModel)]="user.password" name="senha" placeholder="Digite sua senha" type="password"></ion-input>
       </ion-item>
     </form>
     <button ion-button class="botao" type="submit" (click)="login.ngSubmit.emit()" block>

@@ -17,6 +17,8 @@ import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/do';
 import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
 import { AlertServiceProvider } from '../providers/alert-service/alert-service'; 
+import { LogAutomaticoPage } from '../pages/log-automatico/log-automatico';
+import { MyPage } from '../pages/my/my';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { AlertServiceProvider } from '../providers/alert-service/alert-service';
     HomePage,
     CadastroPage,
     LoginPage,
+    LogAutomaticoPage,
+    MyPage,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { AlertServiceProvider } from '../providers/alert-service/alert-service';
     HomePage,
     CadastroPage,
     LoginPage,
+    LogAutomaticoPage,
+    MyPage,
   ],
   providers: [
     StatusBar,

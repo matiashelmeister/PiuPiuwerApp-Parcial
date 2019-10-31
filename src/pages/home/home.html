@@ -1,22 +1,39 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      PiuPiuwer  
+    <ion-title class="titulopag">
+      <img src="../../assets/imgs/logo.png">
+      <h3>PiuPiuwer</h3>
+      <i class="mypage material-icons" title="Minha Página" (click)="minhaPagina()">account_circle</i>
+      <i class="logout material-icons" title="Sair" (click)="fazerLogin()">exit_to_app</i>
     </ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="body">
   <ion-list>
-    <ion-item class="post" *ngFor="let user of users">
-      <h2>{{user.name}}</h2>
-      <p>{{user.texto}}</p>
-    </ion-item>
-    <ion-item (click)="fazerLogin()">
-      Login
-    </ion-item>
-    <ion-item (click)="fazerCadastro()">
-     Cadastro
+    <div class="formulario">
+      <form (ngSubmit)="criaPiu()">
+        <ion-item no-lines>
+          <ion-textarea [(ngModel)]="textoPost" class="input" rows="3" name="novoPiu" placeholder="O que passa pela sua cabeça?" type="text"></ion-textarea>
+        </ion-item>
+        <h5 class="underpost">{{textoPost.length}}/140</h5>
+      </form>
+    </div>
+    <ion-item no-lines class="post" [class.destacado]="post.favoritado" *ngFor="let post of posts; let i = index">
+      <div class="post-header">
+        <h2 (click)="visitaUsuario(i)"><strong>{{post.usuario.username}}</strong></h2>
+        <div class="interacoes">
+          <i class="botao-destacar tiny material-icons" title="Destacar" (click)="destacaPost(i)">stars</i>
+          <!-- <i class="botao-editar tiny material-icons" title="Editar" (click)="editaPost">mode_edit</i>
+          <i class="botao-apagar tiny material-icons" title="Remover" (click)="removePost(i)">clear</i> -->
+        </div>
+      </div>
+      <h3 class="conteudo">{{post.conteudo}}</h3>
     </ion-item>
   </ion-list>
 </ion-content>

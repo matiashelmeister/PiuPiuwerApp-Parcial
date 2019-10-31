@@ -1,11 +1,9 @@
 import { HttpClient, HttpParams, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario } from '../../pages/modelos/usuario';
 
 @Injectable()
 export class UsuariosServiceProvider {
 
-  private usuario: Usuario;
   private apiUrl = "http://piupiuwer.polijunior.com.br/api"
 
 
@@ -19,5 +17,9 @@ export class UsuariosServiceProvider {
       .set("username", usuario.username)
       .set("password",usuario.senha)
     })
+  }
+
+  infoUsuario(id){
+    return this._http.get(this.apiUrl + '/usuarios/' + id)
   }
 }

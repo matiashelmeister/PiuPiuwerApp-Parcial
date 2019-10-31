@@ -1,6 +1,8 @@
+import { Usuario } from "./usuario";
+
 export interface Post {
-    nome: string;
-    username: string;
-    imagem:string;
-    mensagem: string;
+    usuario: Usuario;
+    conteudo: string;
+    favoritado: boolean;
+    data: string;
 }

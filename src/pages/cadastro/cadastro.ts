@@ -13,12 +13,13 @@ import { AlertServiceProvider } from '../../providers/alert-service/alert-servic
 export class CadastroPage {
 
   public novoUser: Usuario = {
-    nome: '',
-    sobrenome:'',
+    first_name: '',
+    last_name:'',
     username: '',
     email: '',
     senha: '',
     confirmasenha: '',
+    id: null,
   };
 
   constructor(
@@ -35,9 +36,9 @@ export class CadastroPage {
     let subtitulo = '';
     if(
       this.novoUser.email == "" ||
-      this.novoUser.nome == ""||
+      this.novoUser.first_name == ""||
       this.novoUser.senha == ""||
-      this.novoUser.sobrenome == ""||
+      this.novoUser.last_name == ""||
       this.novoUser.username == ""||
       this.novoUser.confirmasenha == ""
     ){
@@ -64,23 +65,45 @@ export class CadastroPage {
       this._cadastroUsuarios.postaCadastro(this.novoUser)
         .subscribe(
           (retorno) => {
+            console.log("vrau");
+            
             subtitulo= 'Vamos piar?'
-            titulo = 'Cadastro bem sucedido!'
+            titulo = 'Cadastro bemn sucedido!'
             this._alertService.criaAlerta(titulo,subtitulo)
             this.navCtrl.setRoot(LoginPage)
             console.log(retorno)
           },
           (err) => {
-            subtitulo = 'Tente novamente mais tarde!'
-            titulo = 'Falha no cadastro'
-            this._alertService.criaAlerta(titulo,subtitulo)
             console.log(err)
-          }
-        )
-      console.log(this.novoUser);
-      
+            if (err.error.email = "Enter a valid email address."){
+              subtitulo= 'Insira um e-mail adequado no respectivo campo'
+              titulo = 'E-mail inválido'
+              this._alertService.criaAlerta(titulo,subtitulo)  
+            }
+            else if (err.error.username = "A user with that username already exists."){
+              subtitulo= 'Escolha um outro nome de usuário'
+              titulo = 'Username já existe'
+              this._alertService.criaAlerta(titulo,subtitulo)  
+            }
+// CONSERTAR ERRO DE EMAIL INVALIDO + USERNAME JA EXISTENTE
+            // if (err.error.email = "Enter a valid email address."){
+            //   subtitulo= 'E-mail inválido ou username já existente'
+            //   titulo = 'Problema com e-mail ou username'
+            //   this._alertService.criaAlerta(titulo,subtitulo)  
+            // }
 
+
+            else{
+              subtitulo = 'Tente novamente mais tarde!'
+              titulo = 'Falha no cadastro'
+              this._alertService.criaAlerta(titulo,subtitulo)
+          }}
+        )      
     }
-
   }
+
+  fazerLogin(){
+    this.navCtrl.setRoot(LoginPage);
+  }
+
 }

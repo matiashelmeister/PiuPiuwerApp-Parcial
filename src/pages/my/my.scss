@@ -1,4 +1,4 @@
-page-home {
+page-my {
     .toolbar-title{
         display: flex;
         flex-direction: row;
@@ -17,19 +17,10 @@ page-home {
         margin-right: .3em;
     }
 
-    .mypage{
-        position: absolute;
-        top: .65em;
-        right: 1.6em;
-        font-size: 22px;
-
-    }
-
     .logout{
         position: absolute;
-        top: .65em;
+        top: .49em;
         right: .4em;
-        font-size: 22px;
 
     }
     .body{
@@ -37,35 +28,30 @@ page-home {
         color: #0a0c0b;
     }
 
-    .formulario{
-        color: #0d2918;
-        background-color: #c0d7c7;
-        border-radius: 7px;
-        height: 7.5em;
+    .perfil{
+        display: flex;
+        flex-direction: row;
+        background-color: inherit;
+        color: #c0d7c7;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        bottom: .9em;
+
+    }
+
+    .foto-default{
+        font-size: 60px;
+    }
+
+    .informacoes{
         display: flex;
         flex-direction: column;
-        margin-bottom: 1em;
-        z-index: 99999999;
+        justify-content: center;
     }
 
-    .input{
-        margin-top: .2em;
-        font-size: .9em;
-    }
-    .item{
-        background-color: #c0d7c7;
-        border-radius: 7px;
-        color: #0d2918;
-        margin-bottom: .7em;
-    }
-
-    .underpost{
-        color: #00672e;
-        position: relative;
-        bottom: 1.2em;
-        left: 13.5em;
-        z-index: 1;
-        font-size:1.11em
+    .nome{
+        font-size: 1.4em;
     }
 
     .post{
@@ -88,16 +74,13 @@ page-home {
         right: .5em;
     }
 
-    .botao-destacar, .botao-editar, .botao-apagar{
+    .destacar, .options{
         font-size: 16px;
     }
 
-    .destacado{
-        background-color: rgb(137, 202, 255);
+    .conteudo{
+        height: auto;
     }
 
-    .conteudo{
-        height: max-content ;
-    }
 
 }

@@ -9,13 +9,11 @@ export class CadastroUsuariosProvider {
   }
 
   postaCadastro(novoUser){
-    console.log(novoUser.senha);
-  
     let body = {
       "username": novoUser.username,
       "password": novoUser.senha,
-      "first_name": novoUser.nome,
-      "last_name": novoUser.sobrenome,
+      "first_name": novoUser.first_name,
+      "last_name": novoUser.last_name,
       "email": novoUser.email
     }
 
